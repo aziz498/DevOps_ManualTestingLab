@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nike.com</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .left-logos {
+      display: flex;
+      align-items: center;
+    }
+
+    .left-logos img {
+      height: 2rem;
+      margin-right: 20px;
+    }
+
+    .right-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .right-links li {
+      margin-left: 20px;
+    }
+
+    .right-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .right-links li a:hover {
+      color: rgb(251, 111, 60);
+    }
+
+    .right-links li ul {
+      display: none;
+      position: absolute;
+      border-radius: 5px ;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      right:170px;
+      z-index: 1000;
+      background-color:white;
+      list-style: none;
+      padding: 15px;
+      margin: 0;
+    }
+    .right-links li:hover ul {
+      display: block;
+    }
+    .right-links li ul li {
+      margin: 0;
+    }
+    .right-links li ul li a {
+      color:black;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+    }
+    /* second nav bar */
+    .secondBar {
+  background-color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.secondBar .nike-logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.secondBar .nike-logo img {
+  height: 2rem;
+  margin-right: 10px;
+}
+
+.secondBar .centerContetnt {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.secondBar .center {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.secondBar .center li {
+  margin: 0 15px;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  cursor: pointer;
+}
+
+.secondBar .center li:hover {
+  color: rgb(251, 111, 60);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  padding: 10px 0;
+  min-width: 160px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    /* Search and icons */
+    
+    .right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.right-icons i {
+  font-size: 1.2rem;
+  color: black;
+  cursor: pointer;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.search-box i {
+  margin-right: 5px;
+  color: gray;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+}
+.hero-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  gap: 30px;
+}
+
+.hero-left img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.hero-right {
+  max-width: 500px;
+  text-align: center;
+}
+
+.hero-right h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-right p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  padding: 12px 30px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: rgb(251, 111, 60);
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .hero-banner {
+    flex-direction: column;
+  }
+
+  .hero-right h1 {
+    font-size: 2rem;
+  }
+}
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .right-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+
+      .right-links li {
+        margin: 5px 0;
+      }
+    }
+  .aware_container{
+    margin:0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:20vw;
+    height:25vh;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    visibility: hidden;
+  }
+  .aware_content {
+    text-align: center;
+  }
+  .aware_content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .aware_content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .aware_content button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- top navbar -->
+  <nav>
+    <div class="left-logos">
+      <a href="#"><img src="https://wallpapers.com/images/hd/air-jordan-logo-in-solid-black-j4id7k9idbb2mkv7.jpg" alt="Jordan Logo" /></a>
+      <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDZ6T1IXmvq0LTnvuhGWyyAMU_fXia4t258tHHEKL8cQ4KuJr3dePaY8ruYmJYGV0TR1A&usqp=CAU" alt="Converse Logo" /></a>
+    </div>
+    <ul class="right-links">
+      <li><a href="#">Find a Store</a></li>
+      <!-- help dropdown -->
+      <li>
+        <a href="#">Help</a>
+        <ul class="dropdown">
+          <li><a href="#">Customer Service</a></li>
+          <li><a href="#">Order Status</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      <li><a href="./signUp.html">Get Started</a></li>
+    </ul>
+  </nav>
+
+<!-- second nvbar -->
+<div class="secondBar">
+  <div class="nike-logo">
+    <a href="#"><img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWC6p65HRcgBbuKo4tmCBvu4SmRLWa94A6YA&s" alt="Nike Logo" /></a>
+  </div>
+  <div class="centerContetnt">
+    <ul class="center">
+      <li class="dropdown">
+        New & Featured
+        <div class="dropdown-content">
+          <a href="#">New Arrivals</a>
+          <a href="#">Best Sellers</a>
+          <a href="#">Member Exclusive</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        Men
+        <div class="dropdown-content">
+          <a href="#">Shoes</a>
+          <a href="#">Clothing</a>
+          <a href="#">Accessories</a>
+          <a href="#">Shop All</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        Women
+        <div class="dropdown-content">
+          <a href="#">Shoes</a>
+          <a href="#">Clothing</a>
+          <a href="#">Accessories</a>
+          <a href="#">Shop All</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        Kids
+        <div class="dropdown-content">
+          <a href="#">Boys</a>
+          <a href="#">Girls</a>
+          <a href="#">Toddlers</a>
+          <a href="#">Shop All</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        Sale
+        <div class="dropdown-content">
+          <a href="#">Men's Sale</a>
+          <a href="#">Women's Sale</a>
+          <a href="#">Kids' Sale</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="right-icons">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search">
+    </div>
+    <i class="fas fa-heart"></i>
+    <i class="fas fa-shopping-bag"></i>
+    <i class="fas fa-user"></i>
+  </div>  
+</div>
+<section class="hero-banner">
+  <div class="hero-left">
+    <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/9aa935dd-d653-4d82-9cf6-e6de6f8bca0b/NIKE+E-SERIES+AD.png" alt="Nike E-Series AD" />
+  </div>
+  <div class="hero-right">
+    <h1>NIKE E-SERIES AD</h1>
+    <p>Comfort meets everyday style.<br> Discover the all-new Nike E-Series now.</p>
+    <a href="#" class="hero-btn">Shop the Collection</a>
+  </div>
+</section>
+<!-- simple alert form to make the user aware to sign up and be the first to know about new products -->
+<div class="aware_container">
+  <div class="aware_content">
+    <h2>Be the First to Know!</h2>
+    <p>Sign up now to receive exclusive updates on new products, special offers, and more.</p>
+    <button onclick="window.location.href='./signUp.html'">Sign Up</button>
+  </div>
+</div>
+</body>
+<script>
+setTimeout(() => {
+  const awareContainer = document.querySelector('.aware_container');
+  awareContainer.style.visibility = 'visible';
+  awareContainer.style.opacity = '1';
+  // blur the background
+  const blurBackground = document.querySelector('.hero-banner ');
+    
+  blurBackground.style.filter = 'blur(5px)';
+}, 3000);
+</script>
+</html>

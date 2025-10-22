@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.auth-box {
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.auth-tabs button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: black;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.auth-tabs .active {
+  border-color: rgb(251, 111, 60);
+  color: rgb(251, 111, 60);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: rgb(251, 111, 60);
+}
+
+.hidden {
+  display: none;
+}
+
+    </style>
+</head>
+<body>
+    <section class="auth-section">
+        <div class="auth-box">
+          <div class="auth-tabs">
+            <button id="loginTab" class="active" onclick="showForm('login')">Login</button>
+            <button id="signupTab" onclick="showForm('signup')">Sign Up</button>
+          </div>
+      
+          <form id="loginForm" class="auth-form">
+            <h2>Login</h2>
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+          </form>
+      
+          <form id="signupForm" class="auth-form hidden">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Confirm Password" required />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </section>
+      
+</body>
+<script>
+  function showForm(type) {
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+
+    if (type === 'login') {
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+      loginTab.classList.add('active');
+      signupTab.classList.remove('active');
+    } else {
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+      loginTab.classList.remove('active');
+      signupTab.classList.add('active');
+    }
+  }
+</script>
+</html>
